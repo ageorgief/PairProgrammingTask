@@ -2,9 +2,15 @@ package bitsArraySum;
 
 public class BitsArraySum {
 	public static int getBitsofNumber(int number) {
-		return 42;
+		int sum = 0;
+		while (number > 0) {
+			sum += number % 2;
+			number = number / 2;
+		}
+		return sum;
 	}
-	public static int[][] bitMatrixBuilding(int[] array){
+
+	public static int[][] bitMatrixBuilding(int[] array) {
 		return null;
 	}
 	
@@ -62,7 +68,7 @@ public class BitsArraySum {
 	public  int[] arrangeArray(int[][] matrix) {
 		sort(matrix,0,matrix[0].length-1);
 		return matrix[0];
-		
+
 	}
 
 }
