@@ -7,8 +7,9 @@ import org.junit.Test;
 public class BitsArraySumTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void getBitsOfNumberTest() {
+		assertEquals(BitsArraySum.getBitsofNumber(211),5);
+		assertEquals(BitsArraySum.getBitsofNumber(99_999),10);
 	}
 
 }
