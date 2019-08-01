@@ -6,9 +6,14 @@ import org.junit.Test;
 
 public class BitsArraySumTest {
 
+	
+
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void When_arrangeArrayInvoked_Expect_ArrayToBeSorted() {
+		BitsArraySum k = new BitsArraySum();
+		int[][] matrix = { { 15, 85, 64, 97 }, { 9, 6, 16, 3 } };
+		int[] arr = { 97, 85, 15, 64 };
+		assertArrayEquals(arr,k.arrangeArray(matrix));
 	}
 
 }
