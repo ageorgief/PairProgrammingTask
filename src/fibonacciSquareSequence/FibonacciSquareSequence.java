@@ -16,7 +16,4 @@ public class FibonacciSquareSequence {
 	public static boolean containsFibonacciSequence(int[][] matrix) {
 		return false;
 	}
-	public static void main(String[] args) {
-		
-	}
 }
