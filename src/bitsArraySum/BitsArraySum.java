@@ -11,7 +11,17 @@ public class BitsArraySum {
 	}
 
 	public static int[][] bitMatrixBuilding(int[] array) {
-		return null;
+		int[][] result = new int[2][array.length];
+
+		for (int j = 0; j < array.length; j++) { // for the first row
+			result[0][j] = array[j];
+		}
+
+		for (int j = 0; j < array.length; j++) { // for the second row
+			result[1][j] = getBitsofNumber(array[j]);
+		}
+		return result;
+
 	}
 
 	private static void sort(int[][] matrix, int start, int end) {
