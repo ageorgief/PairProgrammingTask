@@ -12,6 +12,13 @@ public class NeighboursFibonacciSequence {
 		return false;
 	}
 	public static boolean hasFibonnaciNeighbours(int[][] matrix) {
+		for (int i=0;i<matrix.length;i++) {
+			for(int j=0;j<matrix[0].length;j++) {
+				if(isFibonacciSequence(arraySort(neighboursCollecting(matrix,i,j)))) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 	
