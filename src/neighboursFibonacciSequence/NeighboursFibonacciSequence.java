@@ -2,7 +2,9 @@ package neighboursFibonacciSequence;
 
 public class NeighboursFibonacciSequence {
 	public static int[] neighboursCollecting(int[][] matrix, int elementRow,int elementCol) {
-		
+		if () {
+			
+		}
 		return null;
 	}
 	public static int[] arraySort(int[] array) {
