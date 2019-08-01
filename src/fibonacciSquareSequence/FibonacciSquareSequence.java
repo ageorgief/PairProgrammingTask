@@ -8,11 +8,33 @@ public class FibonacciSquareSequence {
 			previousNumber = currentNumber;
 			currentNumber += temp;
 		}
-		return (currentNumber == number2 && previousNumber == number1) ;
+		return (currentNumber == number2 && previousNumber == number1);
 	}
-	public static boolean spiralMatrixWalk(int size,int firstCoordinate,int secondCoordinate){
+
+	public static boolean spiralMatrixWalk(int size, int firstCoordinate, int secondCoordinate) {
+		int previousNumber = matrix[firstCoordinate][secondCoordinate];
+		if (isFibonnaciNumber(matrix[firstCoordinate][secondCoordinate], secondCoordinate)) {
+			for (int i = 0; i < size / 2 + 1; i++) {
+				for (int j = i; j < size - i; j++) {
+					if(i ==0 && j > 1 || i > 0) {
+						if()
+					}
+				}
+				for (int j = i + 1; j < size - i; j++) {
+				}
+				for (int j = size - i - 2; j >= 0 + i; j--) {
+				}
+				for (int j = size - i - 2; j > 0 + i; j--) {
+				}
+			}
+		}
+		else {
+			return false;
+		}
+
 		return false;
 	}
+
 	public static boolean containsFibonacciSequence(int[][] matrix) {
 		return false;
 	}
