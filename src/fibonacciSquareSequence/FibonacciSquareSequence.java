@@ -44,7 +44,6 @@ public class FibonacciSquareSequence {
 							currentNumber = croppedMatrix[i][j];
 						}
 					}
-
 				}
 				for (int j = i + 1; j < size - i; j++) {
 					if (croppedMatrix[j][size - i - 1] != previousNumber + currentNumber) {
@@ -72,11 +71,12 @@ public class FibonacciSquareSequence {
 				}
 			}
 		} 
-		else {
+		else{
 			return false;
 		}
 		return true;
 	}
+
 	public static boolean containsFibonacciSequence(int[][] matrix) {
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
@@ -88,5 +88,5 @@ public class FibonacciSquareSequence {
 			}
 		}
 		return false;
-	}	
+	}
 }
