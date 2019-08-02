@@ -3,9 +3,11 @@ package bitsArraySum;
 public class BitsArraySum {
 	public static int getBitsofNumber(int number) {
 		int sum = 0;
-		while (number > 0) {
-			sum += number % 2;
-			number = number / 2;
+		char[] c = Integer.toBinaryString(number).toCharArray();
+		for (int i = 0; i < c.length; i++) {
+			if (c[i] == '1') {
+				sum++;
+			}
 		}
 		return sum;
 	}

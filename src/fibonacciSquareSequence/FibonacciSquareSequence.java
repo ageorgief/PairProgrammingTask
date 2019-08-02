@@ -1,7 +1,10 @@
 package fibonacciSquareSequence;
 
 public class FibonacciSquareSequence {
-	public static boolean isFibonnaciNumber(long number1, long number2) {
+	public static boolean areFibonnaciNumbers(long number1, long number2) {
+		if((number1==1 && number2 == 1)||(number1==0 && number2==1)){
+			return true;
+		}
 		long currentNumber = 1, previousNumber = 0;
 		while (currentNumber < number2) {
 			long temp = previousNumber;
@@ -11,31 +14,70 @@ public class FibonacciSquareSequence {
 		return (currentNumber == number2 && previousNumber == number1);
 	}
 
+	public static int[][] croppingMatrix(int size, int firstCoordinate, int secondCoordinate, int[][] matrix) {
+		int[][] croppedMatrix = new int[size][size];
+		int row = 0, col = 0;
+		for (int i = firstCoordinate; row < size; i++) {
+			for (int j = secondCoordinate; col < size; j++) {
+				croppedMatrix[row][col] = matrix[i][j];
+				col++;
+			}
+			col = 0;
+			row++;
+		}
+		return croppedMatrix;
+	}
 
 	public static boolean spiralMatrixWalk(int size, int firstCoordinate, int secondCoordinate, int[][] matrix) {
 		int previousNumber = matrix[firstCoordinate][secondCoordinate];
-		if (isFibonnaciNumber(matrix[firstCoordinate][secondCoordinate], secondCoordinate)) {
+		int currentNumber = matrix[firstCoordinate][secondCoordinate + 1];
+		int counter = 0;
+		int[][] croppedMatrix = croppingMatrix(size, firstCoordinate, secondCoordinate, matrix);
+		if (areFibonnaciNumbers(previousNumber, currentNumber)) {
 			for (int i = 0; i < size / 2 + 1; i++) {
 				for (int j = i; j < size - i; j++) {
-					if(i ==0 && j > 1 || i > 0) {
-						
+					counter++;
+					if (counter > 2) {
+						if (croppedMatrix[i][j] != previousNumber + currentNumber) {
+							return false;
+						} else {
+							previousNumber = currentNumber;
+							currentNumber = croppedMatrix[i][j];
+						}
 					}
 				}
 				for (int j = i + 1; j < size - i; j++) {
+					if (croppedMatrix[j][size - i - 1] != previousNumber + currentNumber) {
+						return false;
+					} else {
+						previousNumber = currentNumber;
+						currentNumber = croppedMatrix[j][size - i - 1];
+					}
 				}
 				for (int j = size - i - 2; j >= 0 + i; j--) {
+					if (croppedMatrix[size - i - 1][j] != previousNumber + currentNumber) {
+						return false;
+					} else {
+						previousNumber = currentNumber;
+						currentNumber = croppedMatrix[size - i - 1][j];
+					}
 				}
 				for (int j = size - i - 2; j > 0 + i; j--) {
+					if (croppedMatrix[j][i] != previousNumber + currentNumber) {
+						return false;
+					} else {
+						previousNumber = currentNumber;
+						currentNumber = croppedMatrix[j][i];
+					}
 				}
 			}
-			return false;
-		}
-		else {
-			return false;
-		}
 
+		} else {
+
+			return false;
+		}
+		return true;
 	}
-
 
 	public static boolean containsFibonacciSequence(int[][] matrix) {
 		for (int i = 0; i < matrix.length; i++) {

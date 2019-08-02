@@ -115,7 +115,6 @@ public class NeighboursFibonacciSequence {
 		}
 	}
 
-
 	private static void sort(int[] arr, int start, int end) {
 		if (start < end) {
 			int m = start + (end - start) / 2;
@@ -162,6 +161,31 @@ public class NeighboursFibonacciSequence {
 			j++;
 		}
 	}
+
+	public static int[] arraySort(int[] array) {
+		sort(array, 0, array.length - 1);
+		return array;
+	}
+
+	public static boolean isFibonacciSequence(int[] array) {
+		int currentNumber = 1, previousNumber = 0;
+		while (previousNumber < array[0]) {
+			int temp = previousNumber;
+			previousNumber = currentNumber;
+			currentNumber += temp;
+		}
+		if (previousNumber == array[0] && array.length == 1) {
+			return true;
+		} else if (currentNumber == array[1] && previousNumber == array[0]) {
+			for (int i = 2; i < array.length; i++) {
+				if (array[i] != array[i - 1] + array[i - 2]) {
+					return false;
+				}
+			}
+		} else {
+			return false;
+		}
+		return true;
+
+	}
 }
-
-
